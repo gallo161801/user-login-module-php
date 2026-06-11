@@ -2,6 +2,7 @@
 
 namespace UserLoginService\Application;
 
+use Exception;
 use UserLoginService\Domain\User;
 
 class UserLoginService
@@ -14,11 +15,11 @@ class UserLoginService
 
     public function manualLogin(User $user): string
     {
-        if(!in_array($user, $this->loggedUsers)){
-            $this->logguedUsers[] = $user;
-            return "user logged";
+        if(in_array($user, $this->loggedUsers)){
+            throw new Exception("User already logged in");
         }
-        return "";
+        $this->loggedUsers[] = $user;
+        return "user logged";
     }
 
 }
