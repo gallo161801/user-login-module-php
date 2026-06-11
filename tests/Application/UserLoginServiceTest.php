@@ -20,6 +20,6 @@ final class UserLoginServiceTest extends TestCase
 
         $result = $userLoginService->manualLogin($user);
 
-        $this->assertEquals("user logged", $userLoginService->manualLogin());
+        $this->assertEquals("user logged", $result);
     }
 }

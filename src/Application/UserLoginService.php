@@ -2,13 +2,23 @@
 
 namespace UserLoginService\Application;
 
+use UserLoginService\Domain\User;
+
 class UserLoginService
 {
-    private array $loggedUsers = [];
+    private array $loggedUsers;
 
-    public function manualLogin(): string
+    public function __construct(){
+        $this->loggedUsers = [];
+    }
+
+    public function manualLogin(User $user): string
     {
-        return "user logged";
+        if(!in_array($user, $this->loggedUsers)){
+            $this->logguedUsers[] = $user;
+            return "user logged";
+        }
+        return "";
     }
 
 }
