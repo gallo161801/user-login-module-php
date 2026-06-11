@@ -22,4 +22,9 @@ class UserLoginService
         return "user logged";
     }
 
+    public function getLoggedUsers(): array
+    {
+        return $this->loggedUsers;
+    }
+
 }
